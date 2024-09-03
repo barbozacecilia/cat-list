@@ -15,7 +15,7 @@ export default function HomeScreen() {
   useEffect(()=>{
     const fetchItems = async()=>{
       try{
-      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=15&breed_ids=beng&api_key=live_wjcJidyCGCAkhJWm5gRh27juDRDSXFFi1M686ToVeRpTJXHk6XuhavoKLQR5Xjeu')
+      const response = await fetch('https://api.thecatapi.com/v1/breeds')
       const responseJson = await response.json()
       
       console.log(JSON.stringify(responseJson,null, 2))
@@ -34,8 +34,8 @@ export default function HomeScreen() {
       <TextInput style={styles.inputSearch} value={text} onChangeText={onChangeText} keyboardType='web-search' maxLength={20}/>
       <FlatList
          data={items} 
-         renderItem={({item})=><Text>{item.id}</Text>}
-         contentContainerStyle={{ gap: 10 }}
+         renderItem={({item})=><Text>{item.name}</Text>}
+         contentContainerStyle={{ gap: 15, width: 100, backgroundColor: 'yellow', }}
         />
       </SafeAreaView>
   );
