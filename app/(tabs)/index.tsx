@@ -5,6 +5,10 @@ import CardItem from '@/components/CardItem/CardItem'
 import styles from '../styles/styles'
 
 
+type CatItem = {
+  name: string;
+};
+
 export default function HomeScreen() {
 
   const [text, onChangeText] = useState('Search a cat');
@@ -33,9 +37,10 @@ export default function HomeScreen() {
       <Text style={styles.titleContainer} >CatList</Text>
       <TextInput style={styles.inputSearch} value={text} onChangeText={onChangeText} keyboardType='web-search' maxLength={20}/>
       <FlatList
+         keyExtractor={(item: CatItem)=>{return item.name}}
          data={items} 
-         renderItem={({item})=><Text>{item.name}</Text>}
-         contentContainerStyle={{ gap: 15, width: 100, backgroundColor: 'yellow', }}
+         renderItem={({item}: {item: CatItem})=><Text>{item.name}</Text>}
+         contentContainerStyle={{ gap: 15, width: 250, backgroundColor: 'yellow'}}
         />
       </SafeAreaView>
   );
