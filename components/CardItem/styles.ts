@@ -5,18 +5,22 @@ import { StyleSheet } from "react-native";
       backgroundColor: '#FFFFFF',
       display: 'flex',
       flex: 1,
-      justifyContent: 'flex-start',
+      justifyContent: 'center',
       alignItems: 'center',
-      padding: 25,
+      padding: 10,
     },
-    title: {
-      padding: '5%',
+    name: {
       marginTop: '5%',
       alignSelf: 'center',
-      fontSize: 20,
+      fontSize: 15,
       fontWeight: 'bold',
       color: '#658FD7',
     },
+    img: {
+      width: 50,
+      height: 50,
+      backgroundColor: 'pink',
+    }
   }
   );
   

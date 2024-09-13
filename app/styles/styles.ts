@@ -20,6 +20,7 @@ import { StyleSheet } from "react-native";
     inputSearch:{
       backgroundColor: 'white',
       margin: 20,
+      paddingHorizontal: 10,
       borderColor: 'grey',
       borderRadius: 5,
       padding: 8,

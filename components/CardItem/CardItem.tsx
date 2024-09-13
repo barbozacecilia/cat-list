@@ -1,16 +1,22 @@
-import { View,Text , SafeAreaView, TextInput, FlatList, Image } from 'react-native';
-import { useState } from 'react';
+import { View,Text , TouchableOpacity } from 'react-native';
 
 import styles from './styles'
 
+interface Props{
+  name: string;
+}
 
-function CardItem() {
+function CardItem(props: Props) {
+
+const {name}=props;
+
 
   return (
-      <SafeAreaView style={styles.container}>
-      <Text style={styles.title} >CatList</Text>
-      <Image></Image>
-      </SafeAreaView>
+      <TouchableOpacity style={styles.container}>
+        <View>
+          <Text style={styles.name} >{name}</Text>
+        </View>
+      </TouchableOpacity>
   );
 }
 
