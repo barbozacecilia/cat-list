@@ -1,15 +1,15 @@
 import { Text, SafeAreaView, TextInput, FlatList } from 'react-native';
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+
+
 import CardItem from '@/components/CardItem/CardItem'
 
 import styles from '../styles/styles'
 
 
 type CatItem = {
-
   name: string;
   id: string;
-
 };
 
 
@@ -17,7 +17,8 @@ const CAT_API = 'https://api.thecatapi.com/v1/breeds';
 
 export default function HomeScreen() {
 
-  const [inputText, setInputText] = useState('');
+  const [inputText, 
+    setInputText] = useState('');
   const [items, setItems] = useState<CatItem[]>([]);
   const [filteredItems, setFilteredItems] = useState<CatItem[]>([]);
 
@@ -27,7 +28,6 @@ export default function HomeScreen() {
       try {
         const response = await fetch(CAT_API)
         const responseJson = await response.json()
-
         console.log(JSON.stringify(responseJson))
         setItems(responseJson)
         setFilteredItems(responseJson);
@@ -59,7 +59,7 @@ export default function HomeScreen() {
       <Text style={styles.titleContainer} >CatList</Text>
       <TextInput style={styles.inputSearch} value={inputText} autoCapitalize='none' placeholder='search a cat' inlineImageLeft='search_icon'
         onChangeText={(text) => { handlerFilter(text) }}
-        keyboardType='web-search' maxLength={20}/>
+        keyboardType='web-search' maxLength={20} />
       <FlatList
         keyExtractor={(item: CatItem) => { return item.id }}
         data={filteredItems}

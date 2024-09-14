@@ -1,22 +1,20 @@
-import { View,Text , TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from "react-native";
 
-import styles from './styles'
+import styles from "./styles";
 
-interface Props{
+interface Props {
   name: string;
 }
 
 function CardItem(props: Props) {
-
-const {name}=props;
-
+  const { name } = props;
 
   return (
-      <TouchableOpacity style={styles.container}>
-        <View>
-          <Text style={styles.name} >{name}</Text>
-        </View>
-      </TouchableOpacity>
+    <TouchableOpacity style={styles.container}>
+      <View>
+        <Text style={styles.name}>{name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
