@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, Pressable } from "react-native";
 
 import styles from "./styles";
 import { Link } from "expo-router";
@@ -12,18 +12,19 @@ function CardItem(props: Props) {
   const { name, id } = props;
 
   return (
-    <TouchableOpacity style={styles.container}>
-      <Link
-        href={{
-          pathname: "/catInfo/[id]",
-          params: { id, name },
-        }}
-      >
+    <Link
+      asChild
+      href={{
+        pathname: "/catInfo/[id]",
+        params: { id, name },
+      }}
+    >
+      <Pressable style={styles.container}>
         <View>
           <Text style={styles.name}>{name}</Text>
         </View>
-      </Link>
-    </TouchableOpacity>
+      </Pressable>
+    </Link>
   );
 }
 

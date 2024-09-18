@@ -13,12 +13,12 @@ type CatItem = {
   reference_image_id: string;
 };
 
-type CatImg = {
+type catImage = {
   url: string;
 };
 const CatInfo = () => {
   const [catData, setCatData] = useState<CatItem>();
-  const [catImage, setCatImage] = useState<CatImg>();
+  const [catImage, setCatImage] = useState<catImage>();
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { id } = useLocalSearchParams();
@@ -65,8 +65,8 @@ const CatInfo = () => {
           uri: `https://cdn2.thecatapi.com/images/${catData.reference_image_id}.jpg`,
         }}
       />
+      <Image style={styles.image} source={{ uri: catImage?.url }} />
       <Text>{catData.description}</Text>
-      <Text>{catImage?.url}</Text>
       <Text>They temperament is: {catData.temperament}</Text>
       <Text>They origin is from: {catData.origin} </Text>
       <Button onPress={() => router.back()} title="go back" />
