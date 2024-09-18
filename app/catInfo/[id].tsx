@@ -1,47 +1,72 @@
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, Image } from "react-native";
 import styles from "./styles";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-
-const CAT_API = "https://api.thecatapi.com/v1/breeds";
+import { CAT_API } from "../../constants/API";
 
 type CatItem = {
   name: string;
   temperament: string;
   id: string;
+  origin: string;
+  description: string;
+  reference_image_id: string;
 };
 
+type CatImg = {
+  url: string;
+};
 const CatInfo = () => {
-  const [catData, setCatData] = useState<CatItem[]>([]);
+  const [catData, setCatData] = useState<CatItem>();
+  const [catImage, setCatImage] = useState<CatImg>();
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const { id, name } = useLocalSearchParams();
+  const { id } = useLocalSearchParams();
 
   useEffect(() => {
-    fetch(CAT_API)
+    setLoading(true);
+    fetch(`${CAT_API}/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("data: ", data);
-        const searchCat = data.find((cat: CatItem) => cat.id === id);
-        setCatData(searchCat);
+        setCatData(data);
+        setLoading(false);
       })
       .catch((error) => {
         console.log("error: ", error);
       });
   }, [id]);
 
-  if (!catData) {
-    return (
-      <View>
-        <Text>Loading the Catinfo...</Text>
-      </View>
-    );
+  useEffect(() => {
+    if (catData?.reference_image_id) {
+      fetch(`https://api.thecatapi.com/v1/images/${catData.reference_image_id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("DATA DE LA IMAGEN:", data);
+          setCatImage(data);
+        });
+    }
+  }, [catData?.reference_image_id]);
+
+  if (loading) {
+    return <Text>Loading the Catinfo...</Text>;
   }
 
+  if (!catData) {
+    return <View>That cat exists?...</View>;
+  }
   return (
     <View style={styles.container}>
-      <Text>Catinfo de : {name}</Text>
-      <Text>{catData.name}</Text>
+      <Text>
+        {catData.name} y id {id}
+      </Text>
+      <Image
+        style={styles.image}
+        source={{
+          uri: `https://cdn2.thecatapi.com/images/${catData.reference_image_id}.jpg`,
+        }}
+      />
       <Text>{catData.description}</Text>
+      <Text>{catImage?.url}</Text>
       <Text>They temperament is: {catData.temperament}</Text>
       <Text>They origin is from: {catData.origin} </Text>
       <Button onPress={() => router.back()} title="go back" />

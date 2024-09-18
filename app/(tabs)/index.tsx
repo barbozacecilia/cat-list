@@ -1,6 +1,7 @@
 import { Text, SafeAreaView, TextInput, FlatList } from "react-native";
 import { useState, useEffect } from "react";
 import CardItem from "@/components/CardItem/CardItem";
+import { CAT_API } from "../../constants/API";
 
 import styles from "../styles/styles";
 
@@ -8,8 +9,6 @@ type CatItem = {
   name: string;
   id: string;
 };
-
-const CAT_API = "https://api.thecatapi.com/v1/breeds";
 
 export default function HomeScreen() {
   const [inputText, setInputText] = useState("");

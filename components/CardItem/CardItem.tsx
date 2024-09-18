@@ -21,7 +21,6 @@ function CardItem(props: Props) {
       >
         <View>
           <Text style={styles.name}>{name}</Text>
-          <Text style={styles.name}>{id}</Text>
         </View>
       </Link>
     </TouchableOpacity>
