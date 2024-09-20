@@ -1,25 +1,50 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#FFFFFF",
+  mainContainer: {
+    flexDirection: "row",
+    backgroundColor: "#f9f9f9",
+    borderColor: "#bbb",
+    borderBottomWidth: 2,
+    padding: 2,
+  },
+  containerImgName: {
     display: "flex",
     flex: 1,
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
     padding: 10,
   },
   name: {
-    marginTop: "5%",
-    alignSelf: "center",
+    justifyContent: "center",
     fontSize: 15,
     fontWeight: "bold",
-    color: "#658FD7",
+    color: "#373737",
   },
-  img: {
+  origin: {
+    color: "#727272",
+    fontSize: 12,
+    fontWeight: "regular",
+  },
+  iconInfoContainer: {
+    flexDirection: "row",
+  },
+  iconInfo: {
+    marginTop: 10,
+  },
+  iconCatContainer: {
     width: 50,
     height: 50,
+    borderRadius: 50,
     backgroundColor: "pink",
+    marginRight: 5,
+    alignItems: "center", // -
+    justifyContent: "center", // |
+  },
+  iconCat: {
+    alignSelf: "center",
+    resizeMode: "contain", //
+    color: "#727272",
   },
 });
 

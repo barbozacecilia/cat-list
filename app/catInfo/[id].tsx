@@ -59,12 +59,6 @@ const CatInfo = () => {
       <Text>
         {catData.name} y id {id}
       </Text>
-      <Image
-        style={styles.image}
-        source={{
-          uri: `https://cdn2.thecatapi.com/images/${catData.reference_image_id}.jpg`,
-        }}
-      />
       <Image style={styles.image} source={{ uri: catImage?.url }} />
       <Text>{catData.description}</Text>
       <Text>They temperament is: {catData.temperament}</Text>

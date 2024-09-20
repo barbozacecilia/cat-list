@@ -29,29 +29,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     color: "#676767",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-  card: {
-    marginBottom: 15,
-    borderRadius: 8,
-    overflow: "hidden",
-    borderWidth: 1,
-    borderColor: "#ddd",
-    padding: 10,
-    backgroundColor: "#fff",
-  },
   image: {
-    width: "100%",
-    height: 200,
+    width: 351,
+    height: 351,
+    resizeMode: "contain",
   },
 });
 
