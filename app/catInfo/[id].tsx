@@ -3,6 +3,9 @@ import styles from "./styles";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
+import catFoot from "../../assets/images/cat-foot.png";
+
+const catShape = require("../../assets/images/cat-shape.png");
 
 type CatItem = {
   name: string;
@@ -59,10 +62,39 @@ const CatInfo = () => {
       <Text>
         {catData.name} y id {id}
       </Text>
-      <Image style={styles.image} source={{ uri: catImage?.url }} />
+      {catImage?.url ? (
+        <Image style={styles.image} source={{ uri: catImage?.url }} />
+      ) : (
+        <View>
+          <Image style={styles.image} source={catShape} />
+          <Text>The cat doesn't want to apper here</Text>
+        </View>
+      )}
       <Text>{catData.description}</Text>
       <Text>They temperament is: {catData.temperament}</Text>
       <Text>They origin is from: {catData.origin} </Text>
+      <View
+        style={{
+          width: 50,
+          height: 50,
+          backgroundColor: "violet",
+          borderRadius: 50,
+          padding: 5,
+          alignItems: "center", // -
+          justifyContent: "center", // |
+        }}
+      >
+        <Image
+          style={{
+            width: 50,
+            height: "100%",
+            alignSelf: "center",
+            resizeMode: "contain", //
+          }}
+          source={catFoot}
+        />
+      </View>
+
       <Button onPress={() => router.back()} title="go back" />
     </View>
   );
