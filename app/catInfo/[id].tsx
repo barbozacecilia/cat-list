@@ -1,11 +1,11 @@
 import { Text, View, Button, Image } from "react-native";
 import styles from "./styles";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
 import catFoot from "../../assets/images/cat-foot.png";
 
-const catShape = require("../../assets/images/cat-shape.png");
+const catShape = require("@/assets/images/cat-shape.png");
 
 type CatItem = {
   name: string;
@@ -59,6 +59,18 @@ const CatInfo = () => {
   }
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          headerTitle: "CatList",
+          headerStyle: {
+            backgroundColor: "pink",
+          },
+          headerTintColor: "#161313",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
       <Text>
         {catData.name} y id {id}
       </Text>
