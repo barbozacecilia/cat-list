@@ -4,7 +4,12 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#ffafcc",
+        tabBarAccessibilityLabel: "pink",
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -24,7 +29,7 @@ export default function TabLayout() {
             <MaterialCommunityIcons
               name="information"
               size={28}
-              color={"#ffafcc"}
+              color={color}
             />
           ),
         }}
