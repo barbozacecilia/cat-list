@@ -9,10 +9,10 @@ import { HelloWave } from "@/components/HelloWave";
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
+      headerBackgroundColor={{ light: "#bde0fe", dark: "#cdb4db" }}
       headerImage={
         <Image
-          source={require("@/assets/images/react-logo.png")}
+          source={require("@/assets/images/footprints.png")}
           style={styles.headerImage}
         />
       }
@@ -42,7 +42,8 @@ export default function TabTwoScreen() {
           list using essential properties like keyExtractor to identify each
           item, data to display the API information, renderItem to iterate
           through each of the items in the list, and contentContainerStyle to
-          give the desired style to the flat list.
+          give the desired style to the flat list. Pull down the flatlist to see
+          RefreshControl indicator.
         </ThemedText>
       </Collapsible>
       <Collapsible title="Images">
@@ -90,13 +91,17 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: "#d305a6",
-    bottom: -50,
+    bottom: -10,
     left: "30%",
-    height: "60%",
-    width: "50%",
+    width: 10,
+    height: 10,
     padding: 100,
     position: "absolute",
+    borderRadius: 1,
+    borderColor: "red",
+    resizeMode: "contain",
+    borderWidth: 5,
+    borderBottomEndRadius: 20,
   },
   titleContainer: {
     flexDirection: "row",

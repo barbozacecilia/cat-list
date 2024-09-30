@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
 import catFoot from "../../assets/images/cat-foot.png";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
 
 const catShape = require("@/assets/images/cat-shape.png");
 
@@ -58,57 +59,71 @@ const CatInfo = () => {
     return <View>That cat exists?...</View>;
   }
   return (
-    <View style={styles.container}>
-      <Stack.Screen
-        options={{
-          headerTitle: "CatList",
-          headerStyle: {
-            backgroundColor: "pink",
-          },
-          headerTintColor: "#161313",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-        }}
-      />
-      <Text>
-        {catData.name} y id {id}
-      </Text>
-      {catImage?.url ? (
-        <Image style={styles.image} source={{ uri: catImage?.url }} />
-      ) : (
-        <View>
-          <Image style={styles.image} source={catShape} />
-          <Text>The cat doesn't want to apper here</Text>
-        </View>
-      )}
-      <Text>{catData.description}</Text>
-      <Text>They temperament is: {catData.temperament}</Text>
-      <Text>They origin is from: {catData.origin} </Text>
-      <View
-        style={{
-          width: 50,
-          height: 50,
-          backgroundColor: "violet",
-          borderRadius: 50,
-          padding: 5,
-          alignItems: "center", // -
-          justifyContent: "center", // |
-        }}
-      >
-        <Image
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: "#bde0fe", dark: "#cdb4db" }}
+      headerImage={
+        catImage?.url ? (
+          <Image style={styles.image} source={{ uri: catImage?.url }} />
+        ) : (
+          <View>
+            <Image style={styles.image} source={catShape} />
+            <Text>The cat doesn't want to apper here</Text>
+          </View>
+        )
+      }
+    >
+      <View style={styles.container}>
+        <Stack.Screen
+          options={{
+            headerTitle: "CatList",
+            headerStyle: {
+              backgroundColor: "pink",
+            },
+            headerTintColor: "#161313",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Text>
+          {catData.name} y id {id}
+        </Text>
+        {catImage?.url ? (
+          <Image style={styles.image} source={{ uri: catImage?.url }} />
+        ) : (
+          <View>
+            <Image style={styles.image} source={catShape} />
+            <Text>The cat doesn't want to apper here</Text>
+          </View>
+        )}
+        <Text>{catData.description}</Text>
+        <Text>They temperament is: {catData.temperament}</Text>
+        <Text>They origin is from: {catData.origin} </Text>
+        <View
           style={{
             width: 50,
-            height: "100%",
-            alignSelf: "center",
-            resizeMode: "contain", //
+            height: 50,
+            backgroundColor: "violet",
+            borderRadius: 50,
+            padding: 5,
+            alignItems: "center", // -
+            justifyContent: "center", // |
           }}
-          source={catFoot}
-        />
-      </View>
+        >
+          <Image
+            style={{
+              width: 50,
+              height: "100%",
+              alignSelf: "center",
+              resizeMode: "contain", //
+            }}
+            source={catFoot}
+          />
+        </View>
 
-      <Button onPress={() => router.back()} title="go back" />
-    </View>
+        <Button onPress={() => router.back()} title="go back" />
+      </View>
+    </ParallaxScrollView>
   );
 };
 

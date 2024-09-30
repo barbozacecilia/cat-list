@@ -34,6 +34,12 @@ const styles = StyleSheet.create({
     height: 351,
     resizeMode: "contain",
   },
+  headerImage: {
+    borderRadius: 1,
+    borderColor: "red",
+    resizeMode: "cover",
+    borderBottomEndRadius: 20,
+  },
 });
 
 export default styles;

@@ -1,4 +1,11 @@
-import { Text, SafeAreaView, TextInput, FlatList, View } from "react-native";
+import {
+  Text,
+  SafeAreaView,
+  TextInput,
+  FlatList,
+  View,
+  RefreshControl,
+} from "react-native";
 import { useState, useEffect } from "react";
 import CardItem from "@/components/CardItem/CardItem";
 import { CAT_API } from "../../constants/API";
@@ -16,6 +23,7 @@ export default function HomeScreen() {
   const [inputText, setInputText] = useState("");
   const [items, setItems] = useState<CatItem[]>([]);
   const [filteredItems, setFilteredItems] = useState<CatItem[]>([]);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -45,6 +53,12 @@ export default function HomeScreen() {
       setFilteredItems(items); // to show the original list
     }
   }
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    setFilteredItems(items);
+    setRefreshing(false);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -84,6 +98,9 @@ export default function HomeScreen() {
           gap: 5,
           width: 350,
         }}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
       />
     </SafeAreaView>
   );
