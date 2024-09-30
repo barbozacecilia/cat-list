@@ -1,44 +1,57 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "pink",
+  mainContainer: {
+    backgroundColor: "#f9f9f9",
+    width: "100%",
     display: "flex",
     flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
+  },
+  containerText: {
+    backgroundColor: "#f9f9f9",
+    height: "auto",
+    width: "100%",
     padding: 25,
+    borderRadius: 250,
+    alignContent: "center",
+  },
+  decorationContainer: {
+    backgroundColor: "#f9f9f9",
+    height: "200%",
+    width: "200%",
+    alignItems: "center",
+    position: "absolute",
+    alignContent: "center",
+    justifyContent: "center",
+    bottom: "-180%",
+    left: "-50%",
+    right: 0,
+    borderTopLeftRadius: 950,
+    borderTopRightRadius: 950,
   },
   titleContainer: {
-    padding: "5%",
-    marginTop: "5%",
     alignSelf: "center",
     fontSize: 20,
     fontWeight: "bold",
     color: "#658FD7",
-  },
-  inputSearch: {
-    backgroundColor: "white",
-    margin: 20,
-    paddingHorizontal: 10,
-    borderColor: "grey",
-    borderRadius: 5,
-    padding: 8,
-    height: 45,
-    width: "80%",
-    borderWidth: 1,
-    color: "#676767",
+    marginBottom: 20,
   },
   image: {
-    width: 351,
-    height: 351,
-    resizeMode: "contain",
+    width: "100%",
+    overflow: "hidden",
+    height: 400,
+    position: "relative",
   },
-  headerImage: {
-    borderRadius: 1,
-    borderColor: "red",
-    resizeMode: "cover",
-    borderBottomEndRadius: 20,
+  imageShape: {
+    width: "100%",
+    overflow: "hidden",
+    height: 400,
+    alignSelf: "center",
+    position: "relative",
+    backgroundColor: " grey",
+  },
+  textImgShape: {
+    alignSelf: "center",
   },
 });
 

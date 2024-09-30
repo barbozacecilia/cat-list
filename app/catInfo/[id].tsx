@@ -1,10 +1,16 @@
-import { Text, View, Button, Image } from "react-native";
+import {
+  Text,
+  View,
+  Button,
+  Image,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
 import styles from "./styles";
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
 import catFoot from "../../assets/images/cat-foot.png";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
 
 const catShape = require("@/assets/images/cat-shape.png");
 
@@ -59,43 +65,38 @@ const CatInfo = () => {
     return <View>That cat exists?...</View>;
   }
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#bde0fe", dark: "#cdb4db" }}
-      headerImage={
-        catImage?.url ? (
-          <Image style={styles.image} source={{ uri: catImage?.url }} />
-        ) : (
-          <View>
-            <Image style={styles.image} source={catShape} />
-            <Text>The cat doesn't want to apper here</Text>
-          </View>
-        )
-      }
-    >
-      <View style={styles.container}>
-        <Stack.Screen
-          options={{
-            headerTitle: "CatList",
-            headerStyle: {
-              backgroundColor: "pink",
-            },
-            headerTintColor: "#161313",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-        <Text>
+    <ScrollView style={styles.mainContainer}>
+      <Stack.Screen
+        options={{
+          headerTitle: "CatList",
+          headerStyle: {
+            backgroundColor: "#f9f9f9",
+          },
+          headerTintColor: "grey",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+      {catImage?.url ? (
+        <ImageBackground style={styles.image} source={{ uri: catImage?.url }}>
+          <View style={styles.decorationContainer} />
+        </ImageBackground>
+      ) : (
+        <View style={{ backgroundColor: "#ffafcc" }}>
+          <ImageBackground style={styles.imageShape} source={catShape}>
+            <View style={styles.decorationContainer} />
+            <Text style={styles.textImgShape}>
+              The cat doesn't want to apper here
+            </Text>
+          </ImageBackground>
+        </View>
+      )}
+
+      <View style={styles.containerText}>
+        <Text style={styles.titleContainer}>
           {catData.name} y id {id}
         </Text>
-        {catImage?.url ? (
-          <Image style={styles.image} source={{ uri: catImage?.url }} />
-        ) : (
-          <View>
-            <Image style={styles.image} source={catShape} />
-            <Text>The cat doesn't want to apper here</Text>
-          </View>
-        )}
         <Text>{catData.description}</Text>
         <Text>They temperament is: {catData.temperament}</Text>
         <Text>They origin is from: {catData.origin} </Text>
@@ -123,7 +124,7 @@ const CatInfo = () => {
 
         <Button onPress={() => router.back()} title="go back" />
       </View>
-    </ParallaxScrollView>
+    </ScrollView>
   );
 };
 
