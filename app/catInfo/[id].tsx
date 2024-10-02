@@ -1,16 +1,18 @@
 import {
   Text,
   View,
-  Button,
   Image,
   ScrollView,
   ImageBackground,
+  Share,
+  TouchableOpacity,
 } from "react-native";
 import styles from "./styles";
-import { useLocalSearchParams, useRouter, Stack } from "expo-router";
+import { useLocalSearchParams, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
 import catFoot from "../../assets/images/cat-foot.png";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 const catShape = require("@/assets/images/cat-shape.png");
 
@@ -26,11 +28,11 @@ type CatItem = {
 type catImage = {
   url: string;
 };
+
 const CatInfo = () => {
   const [catData, setCatData] = useState<CatItem>();
   const [catImage, setCatImage] = useState<catImage>();
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
   const { id } = useLocalSearchParams();
 
   useEffect(() => {
@@ -64,6 +66,35 @@ const CatInfo = () => {
   if (!catData) {
     return <View>That cat exists?...</View>;
   }
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          "I share with you the information of" +
+          " " +
+          catData.name +
+          "\n" +
+          "This cat is originally from" +
+          "\n" +
+          catData.origin +
+          "\n" +
+          catData.description,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          console.log("shared with activity type: ", result.activityType);
+        } else {
+          console.log("shared");
+        }
+      } else if (result.action === Share.dismissedAction) {
+        console.log("dismissed");
+      }
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <ScrollView style={styles.mainContainer}>
       <Stack.Screen
@@ -113,7 +144,7 @@ const CatInfo = () => {
         >
           <Image
             style={{
-              width: 50,
+              width: 510,
               height: "100%",
               alignSelf: "center",
               resizeMode: "contain", //
@@ -121,8 +152,10 @@ const CatInfo = () => {
             source={catFoot}
           />
         </View>
-
-        <Button onPress={() => router.back()} title="go back" />
+        <TouchableOpacity onPress={onShare} style={styles.shareButton}>
+          <FontAwesome5 name="share" size={24} color="white" />
+          <Text style={styles.textShareButton}>Share information</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

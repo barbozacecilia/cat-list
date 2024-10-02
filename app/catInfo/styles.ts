@@ -53,6 +53,20 @@ const styles = StyleSheet.create({
   textImgShape: {
     alignSelf: "center",
   },
+  shareButton: {
+    backgroundColor: "pink",
+    paddingVertical: 15,
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+    borderRadius: 15,
+  },
+  textShareButton: {
+    color: "FFF",
+    backgroundColor: "RED",
+  },
 });
 
 export default styles;

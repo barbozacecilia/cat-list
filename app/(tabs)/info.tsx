@@ -2,7 +2,6 @@ import { ScrollView, ImageBackground, View, Button, Text } from "react-native";
 import styles from "../styles/stylesInfo";
 import * as Linking from "expo-linking";
 import { Collapsible } from "@/components/Collapsible";
-import { HelloWave } from "@/components/HelloWave";
 import React from "react";
 import { Link } from "expo-router";
 
@@ -17,9 +16,8 @@ export default function TabTwoScreen() {
       </ImageBackground>
 
       <View style={styles.infoContainer}>
-        <View style={styles.titleContainer}>
-          <Text>About this app</Text>
-          <HelloWave />
+        <View>
+          <Text style={styles.titleContainer}>About this app</Text>
         </View>
         <Text>
           To create this application, the react native framework with expo was
