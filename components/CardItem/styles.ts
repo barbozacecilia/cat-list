@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import { Color } from "@/constants/Colors";
 
 const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: "row",
-    backgroundColor: "#f9f9f9",
+    backgroundColor: Color.background,
     borderColor: "#bbb",
     borderBottomWidth: 2,
     padding: 2,
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 50,
-    backgroundColor: "#ffafcc",
+    backgroundColor: "#ffcdb2",
     marginRight: 5,
     alignItems: "center", // -
     justifyContent: "center", // |
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   iconCat: {
     alignSelf: "center",
     resizeMode: "contain", //
-    color: "#727272",
+    color: Color.icons,
   },
 });
 

@@ -24,3 +24,13 @@ export const Colors = {
     tabIconSelected: tintColorDark,
   },
 };
+
+export enum Color {
+  primary = "#0b2545",
+  secundary = "#13315c",
+  terciary = "#134074",
+  icons = "38da9c4",
+  background = "#eef4ed",
+  white = "white",
+  black = "black",
+}

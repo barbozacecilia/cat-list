@@ -12,6 +12,7 @@ import { CAT_API } from "../../constants/API";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import styles from "../styles/styles";
+import TextComponent from "@/components/TextComponent";
 
 type CatItem = {
   name: string;
@@ -65,6 +66,7 @@ export default function HomeScreen() {
       <View style={styles.titleContainer}>
         <MaterialCommunityIcons name="cat" size={40} color="grey" />
         <Text style={styles.title}>CatList</Text>
+        <TextComponent type="title">Hola</TextComponent>
       </View>
       <View style={styles.inputSearchContainer}>
         <TextInput

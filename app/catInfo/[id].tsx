@@ -1,7 +1,6 @@
 import {
   Text,
   View,
-  Image,
   ScrollView,
   ImageBackground,
   Share,
@@ -11,7 +10,6 @@ import styles from "./styles";
 import { useLocalSearchParams, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
-import catFoot from "../../assets/images/cat-foot.png";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 const catShape = require("@/assets/images/cat-shape.png");
@@ -110,7 +108,10 @@ const CatInfo = () => {
         }}
       />
       {catImage?.url ? (
-        <ImageBackground style={styles.image} source={{ uri: catImage?.url }}>
+        <ImageBackground
+          style={styles.catImage}
+          source={{ uri: catImage?.url }}
+        >
           <View style={styles.decorationContainer} />
         </ImageBackground>
       ) : (
@@ -128,34 +129,17 @@ const CatInfo = () => {
         <Text style={styles.titleContainer}>
           {catData.name} y id {id}
         </Text>
-        <Text>{catData.description}</Text>
-        <Text>They temperament is: {catData.temperament}</Text>
-        <Text>They origin is from: {catData.origin} </Text>
-        <View
-          style={{
-            width: 50,
-            height: 50,
-            backgroundColor: "violet",
-            borderRadius: 50,
-            padding: 5,
-            alignItems: "center", // -
-            justifyContent: "center", // |
-          }}
-        >
-          <Image
-            style={{
-              width: 510,
-              height: "100%",
-              alignSelf: "center",
-              resizeMode: "contain", //
-            }}
-            source={catFoot}
-          />
+        <View>
+          <Text>{catData.description}</Text>
+          <Text>They temperament is: {catData.temperament}</Text>
+          <Text>They origin is from: {catData.origin} </Text>
         </View>
-        <TouchableOpacity onPress={onShare} style={styles.shareButton}>
-          <FontAwesome5 name="share" size={24} color="white" />
-          <Text style={styles.textShareButton}>Share information</Text>
-        </TouchableOpacity>
+        <View style={styles.shareButtonContainer}>
+          <TouchableOpacity onPress={onShare} style={styles.shareButton}>
+            <FontAwesome5 name="share" size={24} color="white" />
+            <Text style={styles.textShareButton}>Share information</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );

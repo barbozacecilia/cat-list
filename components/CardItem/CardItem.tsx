@@ -24,12 +24,7 @@ function CardItem(props: Props) {
       <Pressable style={styles.mainContainer}>
         <View style={styles.containerImgName}>
           <View style={styles.iconCatContainer}>
-            <FontAwesome5
-              name="cat"
-              size={24}
-              color="black"
-              style={styles.iconCat}
-            />
+            <FontAwesome5 name="cat" size={24} style={styles.iconCat} />
           </View>
           <View>
             <Text style={styles.name}>{name}</Text>
