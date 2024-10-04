@@ -5,10 +5,11 @@ import { Color } from "@/constants/Colors";
 interface Props {
   type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link";
   children: React.ReactNode;
+  style?: any;
 }
 
-function TextComponent(props: Props) {
-  const { type = "default", children } = props;
+function CatText(props: Props) {
+  const { type = "default", children, style } = props;
 
   const [loaded] = useFonts({
     Fredoka: require("../assets/fonts/Fredoka-VariableFont_wdth,wght.ttf"),
@@ -23,6 +24,7 @@ function TextComponent(props: Props) {
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
         type === "subtitle" ? styles.subtitle : undefined,
         type === "link" ? styles.link : undefined,
+        style,
       ]}
     >
       {children}
@@ -30,12 +32,11 @@ function TextComponent(props: Props) {
   );
 }
 
-export default TextComponent;
+export default CatText;
 
 const styles = StyleSheet.create({
   default: {
     fontSize: 16,
-    lineHeight: 24,
     fontFamily: "Fredoka",
     color: Color.black,
   },
@@ -46,11 +47,12 @@ const styles = StyleSheet.create({
     fontFamily: "Fredoka",
   },
   title: {
-    fontSize: 45,
+    fontSize: 30,
     fontWeight: "bold",
-    lineHeight: 32,
     color: Color.primary,
     fontFamily: "Fredoka",
+    alignSelf: "center",
+    justifyContent: "center",
   },
   subtitle: {
     fontSize: 20,

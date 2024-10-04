@@ -1,5 +1,4 @@
 import {
-  Text,
   SafeAreaView,
   TextInput,
   FlatList,
@@ -12,7 +11,7 @@ import { CAT_API } from "../../constants/API";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import styles from "../styles/styles";
-import TextComponent from "@/components/TextComponent";
+import CatText from "@/components/CatText";
 
 type CatItem = {
   name: string;
@@ -65,8 +64,8 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
         <MaterialCommunityIcons name="cat" size={40} color="grey" />
-        <Text style={styles.title}>CatList</Text>
-        <TextComponent type="title">Hola</TextComponent>
+        <CatText style={styles.title}>CatList</CatText>
+        <CatText type="title">Hola</CatText>
       </View>
       <View style={styles.inputSearchContainer}>
         <TextInput

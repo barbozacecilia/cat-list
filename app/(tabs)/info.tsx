@@ -1,9 +1,10 @@
-import { ScrollView, ImageBackground, View, Button, Text } from "react-native";
+import { ScrollView, ImageBackground, View, Button } from "react-native";
 import styles from "../styles/stylesInfo";
 import * as Linking from "expo-linking";
 import React from "react";
 import { Link } from "expo-router";
 import { Dropdown } from "@/components/Dropdown";
+import CatText from "../../components/CatText";
 
 export default function TabTwoScreen() {
   return (
@@ -17,23 +18,17 @@ export default function TabTwoScreen() {
 
       <View style={styles.infoContainer}>
         <View>
-          <Text style={styles.titleContainer}>About this app</Text>
+          <CatText style={styles.titleContainer}>About this app</CatText>
         </View>
-        <Text>
+        <CatText>
           To create this application, the react native framework with expo was
           used.
-        </Text>
+        </CatText>
         <Dropdown title="TheCatApi">
-          <Text>
+          <CatText>
             This app uses the free version de thecatapi.The hook useEffect was
             used together with fetch to be able to show the API information
-          </Text>
-        </Dropdown>
-        <Dropdown title="Thecatapi">
-          <Text>
-            This app uses the free version de thecatapi.The hook useEffect was
-            used together with fetch to be able to show the API information
-          </Text>
+          </CatText>
           <Button
             title="The Catapi"
             onPress={() =>
@@ -41,10 +36,10 @@ export default function TabTwoScreen() {
                 "https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t",
               )
             }
-          />
+          ></Button>
         </Dropdown>
         <Dropdown title="FlatList">
-          <Text>
+          <CatText>
             This high-performance interface allows you to render basic, flat
             lists, like the one used in the component to display the catList.
             This allows you to improve the code to display each of the items in
@@ -53,35 +48,35 @@ export default function TabTwoScreen() {
             iterate through each of the items in the list, and
             contentContainerStyle to give the desired style to the flat list.
             Pull down the flatlist to see RefreshControl indicator.
-          </Text>
+          </CatText>
         </Dropdown>
         <Dropdown title="Images">
-          <Text>
+          <CatText>
             On the one hand, the information provided by the API was used to
             display the image of each cat. On the other hand, the
             @expo/vector-icons@14.0.3 library was used to display the icons.
-          </Text>
+          </CatText>
         </Dropdown>
         <Dropdown title="Navigation">
-          <Text>
+          <CatText>
             To navigate between screens, use expo-router. Use different tools to
             navigate such as: the useLocalSearchParams hook, as it includes
             route and search parameters dynamically, or the useRouter hook that
             serves to redirect navigation. Also add a Tabs is a very used and
             accessible way to navigate between screens.
-          </Text>
+          </CatText>
         </Dropdown>
         <Dropdown title="TO DO Custom fonts">
-          <Text>custom fonts such as this one.</Text>
+          <CatText>custom fonts such as this one.</CatText>
           <Link href="https://docs.expo.dev/versions/latest/sdk/font" />
         </Dropdown>
         <Dropdown title="TO DO Light and dark mode components">
-          <Text>
+          <CatText>
             This template has light and dark mode support. The{" "}
-            <Text>useColorScheme()</Text> hook lets you inspect what the user's
-            current color scheme is, and so you can adjust UI colors
+            <CatText>useColorScheme()</CatText> hook lets you inspect what the
+            user's current color scheme is, and so you can adjust UI colors
             accordingly.
-          </Text>
+          </CatText>
           <Link href="https://docs.expo.dev/develop/user-interface/color-themes/" />
         </Dropdown>
       </View>
