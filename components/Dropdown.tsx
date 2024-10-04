@@ -1,23 +1,26 @@
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { PropsWithChildren, useState } from "react";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 
-export function Collapsible({
-  children,
-  title,
-}: PropsWithChildren & { title: string }) {
+interface Props {
+  children: React.ReactNode;
+  title: string;
+}
+
+export function Dropdown(props: Props) {
+  const { children, title } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <View>
+    <View style={styles.container}>
       <TouchableOpacity
         style={styles.heading}
         onPress={() => setIsOpen((value) => !value)}
-        activeOpacity={0.8}
       >
-        <Ionicons
-          name={isOpen ? "chevron-down" : "chevron-forward-outline"}
-          size={18}
+        <AntDesign
+          name={isOpen ? "downcircle" : "rightcircle"}
+          size={24}
+          color="grey"
         />
         <Text>{title}</Text>
       </TouchableOpacity>
@@ -27,6 +30,9 @@ export function Collapsible({
 }
 
 const styles = StyleSheet.create({
+  container: {
+    margin: 5,
+  },
   heading: {
     flexDirection: "row",
     alignItems: "center",

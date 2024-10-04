@@ -16,7 +16,15 @@ function TextComponent(props: Props) {
 
   if (!loaded) return null; // loading o  SplashScreen
   return (
-    <Text style={[type === "default" ? styles.default : undefined]}>
+    <Text
+      style={[
+        type === "default" ? styles.default : undefined,
+        type === "title" ? styles.title : undefined,
+        type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
+        type === "subtitle" ? styles.subtitle : undefined,
+        type === "link" ? styles.link : undefined,
+      ]}
+    >
       {children}
     </Text>
   );

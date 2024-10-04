@@ -1,9 +1,9 @@
 import { ScrollView, ImageBackground, View, Button, Text } from "react-native";
 import styles from "../styles/stylesInfo";
 import * as Linking from "expo-linking";
-import { Collapsible } from "@/components/Collapsible";
 import React from "react";
 import { Link } from "expo-router";
+import { Dropdown } from "@/components/Dropdown";
 
 export default function TabTwoScreen() {
   return (
@@ -23,8 +23,13 @@ export default function TabTwoScreen() {
           To create this application, the react native framework with expo was
           used.
         </Text>
-
-        <Collapsible title="Thecatapi">
+        <Dropdown title="TheCatApi">
+          <Text>
+            This app uses the free version de thecatapi.The hook useEffect was
+            used together with fetch to be able to show the API information
+          </Text>
+        </Dropdown>
+        <Dropdown title="Thecatapi">
           <Text>
             This app uses the free version de thecatapi.The hook useEffect was
             used together with fetch to be able to show the API information
@@ -37,8 +42,8 @@ export default function TabTwoScreen() {
               )
             }
           />
-        </Collapsible>
-        <Collapsible title="FlatList">
+        </Dropdown>
+        <Dropdown title="FlatList">
           <Text>
             This high-performance interface allows you to render basic, flat
             lists, like the one used in the component to display the catList.
@@ -49,15 +54,15 @@ export default function TabTwoScreen() {
             contentContainerStyle to give the desired style to the flat list.
             Pull down the flatlist to see RefreshControl indicator.
           </Text>
-        </Collapsible>
-        <Collapsible title="Images">
+        </Dropdown>
+        <Dropdown title="Images">
           <Text>
             On the one hand, the information provided by the API was used to
             display the image of each cat. On the other hand, the
             @expo/vector-icons@14.0.3 library was used to display the icons.
           </Text>
-        </Collapsible>
-        <Collapsible title="Navigation">
+        </Dropdown>
+        <Dropdown title="Navigation">
           <Text>
             To navigate between screens, use expo-router. Use different tools to
             navigate such as: the useLocalSearchParams hook, as it includes
@@ -65,12 +70,12 @@ export default function TabTwoScreen() {
             serves to redirect navigation. Also add a Tabs is a very used and
             accessible way to navigate between screens.
           </Text>
-        </Collapsible>
-        <Collapsible title="TO DO Custom fonts">
+        </Dropdown>
+        <Dropdown title="TO DO Custom fonts">
           <Text>custom fonts such as this one.</Text>
           <Link href="https://docs.expo.dev/versions/latest/sdk/font" />
-        </Collapsible>
-        <Collapsible title="TO DO Light and dark mode components">
+        </Dropdown>
+        <Dropdown title="TO DO Light and dark mode components">
           <Text>
             This template has light and dark mode support. The{" "}
             <Text>useColorScheme()</Text> hook lets you inspect what the user's
@@ -78,7 +83,7 @@ export default function TabTwoScreen() {
             accordingly.
           </Text>
           <Link href="https://docs.expo.dev/develop/user-interface/color-themes/" />
-        </Collapsible>
+        </Dropdown>
       </View>
     </ScrollView>
   );
