@@ -16,7 +16,7 @@ export default function TabTwoScreen() {
         <View style={styles.decorationContainer} />
       </ImageBackground>
 
-      <View style={styles.infoContainer}>
+      <ScrollView style={styles.infoContainer}>
         <View>
           <CatText style={styles.titleContainer}>About this app</CatText>
         </View>
@@ -66,20 +66,11 @@ export default function TabTwoScreen() {
             accessible way to navigate between screens.
           </CatText>
         </Dropdown>
-        <Dropdown title="TO DO Custom fonts">
+        <Dropdown title=" Custom fonts">
           <CatText>custom fonts such as this one.</CatText>
           <Link href="https://docs.expo.dev/versions/latest/sdk/font" />
         </Dropdown>
-        <Dropdown title="TO DO Light and dark mode components">
-          <CatText>
-            This template has light and dark mode support. The{" "}
-            <CatText>useColorScheme()</CatText> hook lets you inspect what the
-            user's current color scheme is, and so you can adjust UI colors
-            accordingly.
-          </CatText>
-          <Link href="https://docs.expo.dev/develop/user-interface/color-themes/" />
-        </Dropdown>
-      </View>
+      </ScrollView>
     </ScrollView>
   );
 }

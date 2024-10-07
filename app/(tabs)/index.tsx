@@ -12,6 +12,7 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import styles from "../styles/styles";
 import CatText from "@/components/CatText";
+import { Color } from "@/constants/Colors";
 
 type CatItem = {
   name: string;
@@ -63,9 +64,8 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
-        <MaterialCommunityIcons name="cat" size={40} color="grey" />
-        <CatText style={styles.title}>CatList</CatText>
-        <CatText type="title">Hola</CatText>
+        <MaterialCommunityIcons name="cat" size={40} color={Color.primary} />
+        <CatText type="title">CatList</CatText>
       </View>
       <View style={styles.inputSearchContainer}>
         <TextInput
@@ -82,7 +82,7 @@ export default function HomeScreen() {
         <FontAwesome5
           name="search"
           size={18}
-          color="grey"
+          color={Color.grey}
           style={styles.searchIcon}
         />
       </View>

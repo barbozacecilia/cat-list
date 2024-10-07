@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   default: {
     fontSize: 16,
     fontFamily: "Fredoka",
-    color: Color.black,
+    color: Color.grey,
   },
   defaultSemiBold: {
     fontSize: 16,

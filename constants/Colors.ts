@@ -26,11 +26,12 @@ export const Colors = {
 };
 
 export enum Color {
-  primary = "#0b2545",
-  secundary = "#13315c",
-  terciary = "#134074",
-  icons = "38da9c4",
-  background = "#eef4ed",
-  white = "white",
+  primary = "#971981", //violeta
+  secundary = "#6460A9",
+  terciary = "#FFE4E7",
+  icons = "#6C6C6C",
+  background = "#D7C2D4",
+  white = "#FFFFFF",
+  grey = "#5E5E5E",
   black = "black",
 }

@@ -11,7 +11,7 @@ export default function TabBarIcon({
   return (
     <Ionicons
       size={28}
-      style={[{ marginBottom: -3, color: "#ffafcc" }, style]}
+      style={[{ marginBottom: -3, color: "#9c878f" }, style]}
       {...rest}
     />
   );

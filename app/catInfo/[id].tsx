@@ -1,5 +1,4 @@
 import {
-  Text,
   View,
   ScrollView,
   ImageBackground,
@@ -11,6 +10,7 @@ import { useLocalSearchParams, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import CatText from "@/components/CatText";
 
 const catShape = require("@/assets/images/cat-shape.png");
 
@@ -58,7 +58,7 @@ const CatInfo = () => {
   }, [catData?.reference_image_id]);
 
   if (loading) {
-    return <Text>Loading the Catinfo...</Text>;
+    return <CatText>Loading the Catinfo...</CatText>;
   }
 
   if (!catData) {
@@ -118,26 +118,24 @@ const CatInfo = () => {
         <View style={{ backgroundColor: "#ffafcc" }}>
           <ImageBackground style={styles.imageShape} source={catShape}>
             <View style={styles.decorationContainer} />
-            <Text style={styles.textImgShape}>
+            <CatText style={styles.textImgShape}>
               The cat doesn't want to apper here
-            </Text>
+            </CatText>
           </ImageBackground>
         </View>
       )}
 
       <View style={styles.containerText}>
-        <Text style={styles.titleContainer}>
-          {catData.name} y id {id}
-        </Text>
+        <CatText style={styles.titleContainer}>{catData.name}</CatText>
         <View>
-          <Text>{catData.description}</Text>
-          <Text>They temperament is: {catData.temperament}</Text>
-          <Text>They origin is from: {catData.origin} </Text>
+          <CatText>{catData.description}</CatText>
+          <CatText>They temperament is: {catData.temperament}</CatText>
+          <CatText>They origin is from: {catData.origin} </CatText>
         </View>
         <View style={styles.shareButtonContainer}>
           <TouchableOpacity onPress={onShare} style={styles.shareButton}>
             <FontAwesome5 name="share" size={24} color="white" />
-            <Text style={styles.textShareButton}>Share information</Text>
+            <CatText style={styles.textShareButton}>Share information</CatText>
           </TouchableOpacity>
         </View>
       </View>

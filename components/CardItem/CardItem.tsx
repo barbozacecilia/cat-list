@@ -1,8 +1,9 @@
-import { Text, Pressable, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { Link } from "expo-router";
 import styles from "./styles";
 import Entypo from "@expo/vector-icons/Entypo";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import CatText from "../CatText";
 
 interface Props {
   name: string;
@@ -27,8 +28,8 @@ function CardItem(props: Props) {
             <FontAwesome5 name="cat" size={24} style={styles.iconCat} />
           </View>
           <View>
-            <Text style={styles.name}>{name}</Text>
-            <Text style={styles.origin}>{origin}</Text>
+            <CatText style={styles.name}>{name}</CatText>
+            <CatText style={styles.origin}>{origin}</CatText>
           </View>
         </View>
         <View style={styles.iconInfoContainer}>

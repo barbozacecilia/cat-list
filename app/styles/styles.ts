@@ -16,16 +16,9 @@ const styles = StyleSheet.create({
     marginTop: "5%",
     marginBottom: 20,
   },
-  title: {
-    alignSelf: "center",
-    justifyContent: "center",
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "#727272",
-  },
   inputSearchContainer: {
     flexDirection: "row",
-    backgroundColor: "#F2F2F2",
+    backgroundColor: Color.terciary,
     borderRadius: 25,
     height: 40,
     color: "#727272",

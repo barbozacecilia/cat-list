@@ -30,9 +30,8 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     backgroundColor: "#f9f9f9",
-    display: "flex",
-    flex: 1,
     padding: 20,
+    paddingBottom: 10,
   },
   titleContainer: {
     flexDirection: "row",
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     lineHeight: 32,
-    color: "grey",
   },
 });
 

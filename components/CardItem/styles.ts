@@ -4,9 +4,9 @@ import { Color } from "@/constants/Colors";
 const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: "row",
-    backgroundColor: Color.background,
-    borderColor: "#bbb",
-    borderBottomWidth: 2,
+    backgroundColor: Color.white,
+    borderColor: Color.grey,
+    borderBottomWidth: 1,
     padding: 2,
   },
   containerImgName: {
@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     fontSize: 15,
     fontWeight: "bold",
-    color: "#373737",
+    color: Color.secundary,
   },
   origin: {
-    color: "#727272",
+    color: Color.grey,
     fontSize: 12,
     fontWeight: "regular",
   },
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 50,
-    backgroundColor: "#ffcdb2",
+    backgroundColor: Color.terciary,
     marginRight: 5,
     alignItems: "center", // -
     justifyContent: "center", // |
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   iconCat: {
     alignSelf: "center",
     resizeMode: "contain", //
-    color: Color.icons,
+    color: Color.grey,
   },
 });
 
