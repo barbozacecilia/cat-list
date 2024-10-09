@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { CAT_API } from "../../constants/API";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import CatText from "@/components/CatText";
+import { debounce } from "lodash";
 
 const catShape = require("@/assets/images/cat-shape.png");
 
@@ -31,6 +32,7 @@ const CatInfo = () => {
   const [catData, setCatData] = useState<CatItem>();
   const [catImage, setCatImage] = useState<catImage>();
   const [loading, setLoading] = useState(true);
+  const [isSharing, setIsSharing] = useState(false);
   const { id } = useLocalSearchParams();
 
   useEffect(() => {
@@ -66,6 +68,9 @@ const CatInfo = () => {
   }
 
   const onShare = async () => {
+    if (isSharing) return;
+    setIsSharing(true);
+
     try {
       const result = await Share.share({
         message:
@@ -88,10 +93,16 @@ const CatInfo = () => {
       } else if (result.action === Share.dismissedAction) {
         console.log("dismissed");
       }
+      setIsSharing(true);
     } catch (error: any) {
       console.log(error.message);
+    } finally {
+      setIsSharing(false);
+      console.log("disable");
     }
   };
+
+  const onShareDebounce = debounce(onShare, 200);
 
   return (
     <ScrollView style={styles.mainContainer}>
@@ -133,7 +144,14 @@ const CatInfo = () => {
           <CatText>They origin is from: {catData.origin} </CatText>
         </View>
         <View style={styles.shareButtonContainer}>
-          <TouchableOpacity onPress={onShare} style={styles.shareButton}>
+          <TouchableOpacity
+            onPress={onShareDebounce}
+            style={[
+              styles.shareButton,
+              { backgroundColor: isSharing ? "gray" : "pink" },
+            ]}
+            disabled={isSharing}
+          >
             <FontAwesome5 name="share" size={24} color="white" />
             <CatText style={styles.textShareButton}>Share information</CatText>
           </TouchableOpacity>

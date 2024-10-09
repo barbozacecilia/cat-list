@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end", // |
   },
   shareButton: {
-    backgroundColor: "pink",
     paddingVertical: 15,
     width: "100%",
     flexDirection: "row",
