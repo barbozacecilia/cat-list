@@ -1,7 +1,8 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useState } from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import CatText from "./CatText";
+import { Color } from "@/constants/Color";
 
 interface Props {
   children: React.ReactNode;
@@ -18,7 +19,7 @@ export function Dropdown(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <TouchableOpacity
         style={styles.heading}
         onPress={() => setIsOpen((prevState) => !prevState)}
@@ -26,13 +27,13 @@ export function Dropdown(props: Props) {
         <AntDesign
           name={isOpen ? IconName.close : IconName.open}
           size={18}
-          color="grey"
+          color={Color.secundary}
           style={styles.icon}
         />
         <CatText>{title}</CatText>
       </TouchableOpacity>
       {isOpen && <View style={styles.content}>{children}</View>}
-    </View>
+    </ScrollView>
   );
 }
 

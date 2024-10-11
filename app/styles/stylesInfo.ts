@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
+import { Color } from "@/constants/Color";
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: "pink",
+    backgroundColor: Color.terciary,
     width: "100%",
     display: "flex",
     flex: 1,
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     lineHeight: 32,
+    color: Color.secundary,
   },
 });
 

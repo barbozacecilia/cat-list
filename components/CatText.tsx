@@ -1,6 +1,6 @@
 import { Text, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import { Color } from "@/constants/Colors";
+import { Color } from "@/constants/Color";
 
 interface Props {
   type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link";
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: "bold",
-    color: Color.primary,
+    color: Color.secundary,
     fontFamily: "Fredoka",
     alignSelf: "center",
     justifyContent: "center",

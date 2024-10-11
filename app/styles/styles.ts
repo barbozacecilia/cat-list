@@ -1,4 +1,4 @@
-import { Color } from "@/constants/Colors";
+import { Color } from "@/constants/Color";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -21,24 +21,26 @@ const styles = StyleSheet.create({
     backgroundColor: Color.terciary,
     borderRadius: 25,
     height: 40,
-    color: "#727272",
     justifyContent: "center",
     alignItems: "center",
     width: 350,
     marginBottom: 20,
-    paddingVertical: 10,
   },
   inputSearch: {
     height: 40,
+    paddingHorizontal: 5,
     width: 340,
     paddingRight: 25,
     paddingVertical: 10,
     fontSize: 15,
     alignContent: "center",
+    color: Color.grey,
   },
   searchIcon: {
     position: "absolute",
     right: 10,
+    paddingHorizontal: 5,
+    color: Color.grey,
   },
 });
 
