@@ -12,6 +12,8 @@ import { CAT_API } from "../../constants/API";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import CatText from "@/components/CatText";
 import { debounce } from "lodash";
+import { Color } from "@/constants/Color";
+import { StatusBar } from "expo-status-bar";
 
 const catShape = require("@/assets/images/cat-shape.png");
 
@@ -106,13 +108,14 @@ const CatInfo = () => {
 
   return (
     <ScrollView style={styles.mainContainer}>
+      <StatusBar style="dark" />
       <Stack.Screen
         options={{
           headerTitle: "CatList",
           headerStyle: {
-            backgroundColor: "#f9f9f9",
+            backgroundColor: Color.white,
           },
-          headerTintColor: "grey",
+          headerTintColor: Color.grey,
           headerTitleStyle: {
             fontWeight: "bold",
           },

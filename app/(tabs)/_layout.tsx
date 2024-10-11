@@ -1,12 +1,13 @@
 import { Tabs } from "expo-router";
 import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { Color } from "@/constants/Color";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#ffafcc",
+        tabBarActiveTintColor: Color.secundary,
         tabBarAccessibilityLabel: "pink",
       }}
     >
