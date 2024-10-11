@@ -4,22 +4,16 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: Color.white,
-    width: "100%",
     display: "flex",
     flex: 1,
-    flexDirection: "column",
   },
   containerText: {
     backgroundColor: Color.white,
-    height: "auto",
     width: "100%",
     padding: 25,
-    borderRadius: 250,
     alignContent: "center",
-    flexDirection: "column",
     alignItems: "center", // -
     justifyContent: "flex-end", // |
-    flex: 3,
   },
   decorationContainer: {
     backgroundColor: Color.white,
@@ -48,7 +42,7 @@ const styles = StyleSheet.create({
   catImage: {
     width: "100%",
     overflow: "hidden",
-    height: 400,
+    height: 300,
     position: "relative",
   },
   imageShape: {
@@ -57,28 +51,29 @@ const styles = StyleSheet.create({
     height: 400,
     alignSelf: "center",
     position: "relative",
-    backgroundColor: " grey",
   },
   textImgShape: {
     alignSelf: "center",
   },
   shareButtonContainer: {
-    display: "flex",
     width: "100%",
     marginTop: "5%",
-    flexDirection: "column",
     alignItems: "flex-end", // -
     justifyContent: "flex-end", // |
+    position: "absolute",
+    bottom: 20,
+    left: 0,
+    right: 0,
   },
   shareButton: {
     paddingVertical: 15,
     width: "100%",
     flexDirection: "row",
-    gap: 10,
     borderRadius: 15,
     marginTop: "5%",
     alignItems: "center", // -
     justifyContent: "center", // |
+    alignContent: "center",
   },
   textShareButton: {
     flexDirection: "row",
@@ -86,7 +81,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 18,
     fontWeight: "bold",
-    color: "grey",
   },
 });
 

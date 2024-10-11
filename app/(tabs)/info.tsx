@@ -1,4 +1,4 @@
-import { ScrollView, ImageBackground, View, Button } from "react-native";
+import { ScrollView, ImageBackground, View, Pressable } from "react-native";
 import styles from "../styles/stylesInfo";
 import * as Linking from "expo-linking";
 import React from "react";
@@ -26,17 +26,20 @@ export default function TabTwoScreen() {
         </CatText>
         <Dropdown title="TheCatApi">
           <CatText>
-            This app uses the free version de thecatapi.The hook useEffect was
+            This app uses the free version de thecatapi. The hook useEffect was
             used together with fetch to be able to show the API information
           </CatText>
-          <Button
-            title="The Catapi"
+          <Pressable
             onPress={() =>
               Linking.openURL(
                 "https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t",
               )
             }
-          ></Button>
+          >
+            <CatText type="link">
+              Click here to learn more about the catApi
+            </CatText>
+          </Pressable>
         </Dropdown>
         <Dropdown title="FlatList">
           <CatText>

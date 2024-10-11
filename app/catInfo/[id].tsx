@@ -13,7 +13,6 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import CatText from "@/components/CatText";
 import { debounce } from "lodash";
 import { Color } from "@/constants/Color";
-import { StatusBar } from "expo-status-bar";
 
 const catShape = require("@/assets/images/cat-shape.png");
 
@@ -107,60 +106,61 @@ const CatInfo = () => {
   const onShareDebounce = debounce(onShare, 200);
 
   return (
-    <ScrollView style={styles.mainContainer}>
-      <StatusBar style="dark" />
-      <Stack.Screen
-        options={{
-          headerTitle: "CatList",
-          headerStyle: {
-            backgroundColor: Color.white,
-          },
-          headerTintColor: Color.grey,
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-        }}
-      />
-      {catImage?.url ? (
-        <ImageBackground
-          style={styles.catImage}
-          source={{ uri: catImage?.url }}
-        >
-          <View style={styles.decorationContainer} />
-        </ImageBackground>
-      ) : (
-        <View style={{ backgroundColor: "#ffafcc" }}>
-          <ImageBackground style={styles.imageShape} source={catShape}>
-            <View style={styles.decorationContainer} />
-            <CatText style={styles.textImgShape}>
-              The cat doesn't want to apper here
-            </CatText>
-          </ImageBackground>
-        </View>
-      )}
-
-      <View style={styles.containerText}>
-        <CatText style={styles.titleContainer}>{catData.name}</CatText>
-        <View>
-          <CatText>{catData.description}</CatText>
-          <CatText>They temperament is: {catData.temperament}</CatText>
-          <CatText>They origin is from: {catData.origin} </CatText>
-        </View>
-        <View style={styles.shareButtonContainer}>
-          <TouchableOpacity
-            onPress={onShareDebounce}
-            style={[
-              styles.shareButton,
-              { backgroundColor: isSharing ? "gray" : "pink" },
-            ]}
-            disabled={isSharing}
+    <View style={{ flex: 1, position: "relative" }}>
+      <ScrollView style={styles.mainContainer}>
+        <Stack.Screen
+          options={{
+            headerTitle: "CatList",
+            headerStyle: {
+              backgroundColor: Color.white,
+            },
+            headerTintColor: Color.grey,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        {catImage?.url ? (
+          <ImageBackground
+            style={styles.catImage}
+            source={{ uri: catImage?.url }}
           >
-            <FontAwesome5 name="share" size={24} color="white" />
-            <CatText style={styles.textShareButton}>Share information</CatText>
-          </TouchableOpacity>
+            <View style={styles.decorationContainer} />
+          </ImageBackground>
+        ) : (
+          <View style={{ backgroundColor: Color.terciary }}>
+            <ImageBackground style={styles.imageShape} source={catShape}>
+              <View style={styles.decorationContainer} />
+              <CatText style={styles.textImgShape}>
+                The cat doesn't want to apper here
+              </CatText>
+            </ImageBackground>
+          </View>
+        )}
+
+        <View style={styles.containerText}>
+          <CatText style={styles.titleContainer}>{catData.name}</CatText>
+          <View>
+            <CatText>{catData.description}</CatText>
+            <CatText>They temperament is: {catData.temperament}</CatText>
+            <CatText>They origin is from: {catData.origin} </CatText>
+          </View>
         </View>
+      </ScrollView>
+      <View style={styles.shareButtonContainer}>
+        <TouchableOpacity
+          onPress={onShareDebounce}
+          style={[
+            styles.shareButton,
+            { backgroundColor: isSharing ? "grey" : Color.terciary },
+          ]}
+          disabled={isSharing}
+        >
+          <FontAwesome5 name="share" size={24} color={Color.grey} />
+          <CatText style={styles.textShareButton}>Share information</CatText>
+        </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

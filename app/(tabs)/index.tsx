@@ -13,7 +13,6 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import styles from "../styles/styles";
 import CatText from "@/components/CatText";
 import { Color } from "@/constants/Color";
-import { StatusBar } from "expo-status-bar";
 
 type CatItem = {
   name: string;
@@ -64,7 +63,6 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="dark" />
       <View style={styles.titleContainer}>
         <MaterialCommunityIcons name="cat" size={40} color={Color.secundary} />
         <CatText type="title">CatList</CatText>

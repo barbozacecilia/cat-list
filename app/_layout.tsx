@@ -1,3 +1,4 @@
+import { Color } from "@/constants/Color";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -24,8 +25,22 @@ export default function RootLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="+not-found" />
+      <Stack.Screen
+        name="(tabs)"
+        options={{
+          headerShown: false,
+          headerStyle: { backgroundColor: Color.white },
+          headerTintColor: Color.grey,
+        }}
+      />
+      <Stack.Screen
+        name="+not-found"
+        options={{
+          headerShown: false,
+          headerStyle: { backgroundColor: Color.white },
+          headerTintColor: Color.grey,
+        }}
+      />
     </Stack>
   );
 }

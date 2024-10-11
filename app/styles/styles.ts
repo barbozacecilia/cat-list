@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   inputSearch: {
     height: 40,
-    paddingHorizontal: 5,
+    paddingHorizontal: 10,
     width: 340,
     paddingRight: 25,
     paddingVertical: 10,
