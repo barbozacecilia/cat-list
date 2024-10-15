@@ -7,10 +7,10 @@ const styles = StyleSheet.create({
     width: "100%",
     display: "flex",
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "flex-end", // |
   },
   decorationContainer: {
-    backgroundColor: "#f9f9f9",
+    backgroundColor: Color.white,
     height: "200%",
     width: "200%",
     alignItems: "center",
@@ -27,12 +27,16 @@ const styles = StyleSheet.create({
     width: "100%",
     overflow: "hidden",
     height: 400,
-    position: "relative",
   },
   infoContainer: {
-    backgroundColor: "#f9f9f9",
-    padding: 20,
+    backgroundColor: Color.white,
     paddingBottom: 10,
+    maxHeight: "100%",
+    padding: 25,
+    alignContent: "flex-start",
+    alignItems: "flex-start", // -
+    justifyContent: "flex-end", // |
+    flex: 2,
   },
   titleContainer: {
     flexDirection: "row",

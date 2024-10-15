@@ -15,6 +15,8 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "CatList",
+          headerStyle: { backgroundColor: Color.white },
+          headerTintColor: Color.grey,
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cat" size={28} color={color} />
@@ -25,6 +27,8 @@ export default function TabLayout() {
         name="info"
         options={{
           title: "Info",
+          headerStyle: { backgroundColor: Color.white },
+          headerTintColor: Color.grey,
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons

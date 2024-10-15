@@ -16,7 +16,7 @@ export default function TabTwoScreen() {
         <View style={styles.decorationContainer} />
       </ImageBackground>
 
-      <ScrollView style={styles.infoContainer}>
+      <View style={styles.infoContainer}>
         <View>
           <CatText style={styles.titleContainer}>About this app</CatText>
         </View>
@@ -73,7 +73,7 @@ export default function TabTwoScreen() {
           <CatText>custom fonts such as this one.</CatText>
           <Link href="https://docs.expo.dev/versions/latest/sdk/font" />
         </Dropdown>
-      </ScrollView>
+      </View>
     </ScrollView>
   );
 }
