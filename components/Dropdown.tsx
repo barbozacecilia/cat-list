@@ -1,6 +1,6 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useState } from "react";
-import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import CatText from "./CatText";
 import { Color } from "@/constants/Color";
 
@@ -19,7 +19,7 @@ export function Dropdown(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <TouchableOpacity
         style={styles.heading}
         onPress={() => setIsOpen((prevState) => !prevState)}
@@ -33,23 +33,25 @@ export function Dropdown(props: Props) {
         <CatText>{title}</CatText>
       </TouchableOpacity>
       {isOpen && <View style={styles.content}>{children}</View>}
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    margin: 5,
+    marginBottom: 2,
   },
   icon: {
     paddingRight: 3,
   },
   heading: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
+    padding: 5,
   },
   content: {
-    marginTop: 6,
     marginLeft: 24,
+    marginBottom: 20,
+    marginTop: 5,
   },
 });

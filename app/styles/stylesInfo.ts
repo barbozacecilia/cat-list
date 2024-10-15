@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.terciary,
     width: "100%",
     display: "flex",
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "flex-end", // |
   },
   decorationContainer: {
@@ -30,13 +30,10 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     backgroundColor: Color.white,
-    paddingBottom: 10,
-    maxHeight: "100%",
-    padding: 25,
-    alignContent: "flex-start",
-    alignItems: "flex-start", // -
-    justifyContent: "flex-end", // |
+    width: "100%",
     flex: 2,
+    padding: 25,
+    alignItems: "flex-start", // -
   },
   titleContainer: {
     flexDirection: "row",
